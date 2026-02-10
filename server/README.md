@@ -1,4 +1,4 @@
-# LockBin Server
+# FlashNote Server
 
 Express.js backend for encrypted secret storage.
 

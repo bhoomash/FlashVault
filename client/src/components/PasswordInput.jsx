@@ -5,7 +5,7 @@ export default function PasswordInput({ value, onChange, placeholder = 'Optional
   
   return (
     <div className="space-y-2">
-      <label className="block text-sm font-medium text-gray-300">
+      <label className="block text-sm font-medium text-gray-700">
         Password protection <span className="text-gray-500">(optional)</span>
       </label>
       <div className="relative">
@@ -19,15 +19,15 @@ export default function PasswordInput({ value, onChange, placeholder = 'Optional
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          className="w-full pl-10 pr-12 py-3 bg-dark-700 border border-dark-600 rounded-xl 
-                     text-white placeholder-gray-500
+          className="w-full pl-10 pr-12 py-3 bg-white border border-gray-300 rounded-xl 
+                     text-black placeholder-gray-500
                      focus:ring-2 focus:ring-primary-500 focus:border-transparent 
-                     transition-all hover:border-dark-500"
+                     transition-all hover:border-gray-400"
         />
         <button
           type="button"
           onClick={() => setShowPassword(!showPassword)}
-          className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-white transition-colors"
+          className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-black transition-colors"
         >
           {showPassword ? (
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

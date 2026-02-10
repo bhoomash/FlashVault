@@ -197,7 +197,7 @@ export default function ViewSecret() {
               </button>
               
               {hasPassword && (
-                <div className="mt-4 flex items-center gap-2 text-sm text-primary-400 bg-primary-500/10 border border-primary-500/20 rounded-lg p-3">
+                <div className="mt-4 flex items-center gap-2 text-sm text-violet-400 bg-violet-500/10 border border-violet-500/20 rounded-lg p-3">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
@@ -215,8 +215,8 @@ export default function ViewSecret() {
         {/* Password State */}
         {status === 'password' && (
           <div className="text-center">
-            <div className="w-20 h-20 bg-primary-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="w-20 h-20 bg-violet-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
@@ -237,9 +237,9 @@ export default function ViewSecret() {
                       setPasswordError('')
                     }}
                     placeholder="Enter password"
-                    className="w-full px-4 py-3 bg-dark-300 border border-dark-600 rounded-xl 
-                               text-white placeholder-gray-500 pr-12
-                               focus:ring-2 focus:ring-primary-500 focus:border-transparent 
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl 
+                               text-white placeholder-gray-400 pr-12
+                               focus:ring-2 focus:ring-violet-500 focus:border-transparent 
                                transition-all"
                     onKeyDown={(e) => e.key === 'Enter' && handleReveal()}
                   />
@@ -334,7 +334,7 @@ export default function ViewSecret() {
                 </button>
               </div>
               
-              <div className="bg-dark-300 rounded-lg p-4 font-mono text-sm whitespace-pre-wrap break-words max-h-96 overflow-y-auto">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm whitespace-pre-wrap break-words max-h-96 overflow-y-auto">
                 {decryptedContent}
               </div>
             </div>

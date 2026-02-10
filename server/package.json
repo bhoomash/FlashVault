@@ -1,5 +1,5 @@
 {
-  "name": "flashvault-server",
+  "name": "flashnote-server",
   "version": "1.0.0",
   "description": "Privacy-first encrypted file and text sharing backend",
   "main": "index.js",

@@ -43,11 +43,11 @@ export default function ShareLink({ link, expiresIn, hasPassword }) {
       </div>
       
       {/* Link Box */}
-      <div className="bg-dark-300 border border-white/10 rounded-xl p-4">
+      <div className="bg-white/5 border border-white/10 rounded-xl p-4">
         <div className="flex items-center gap-3">
           <div className="flex-1 min-w-0">
-            <p className="text-xs text-gray-500 mb-1">Shareable Link</p>
-            <p className="text-primary-400 font-mono text-sm truncate">
+            <p className="text-xs text-gray-400 mb-1">Shareable Link</p>
+            <p className="text-violet-400 font-mono text-sm truncate">
               {link}
             </p>
           </div>
@@ -58,7 +58,7 @@ export default function ShareLink({ link, expiresIn, hasPassword }) {
               px-4 py-2 rounded-lg font-medium text-sm flex items-center gap-2 transition-all
               ${copied 
                 ? 'bg-green-500 text-white' 
-                : 'bg-primary-600 hover:bg-primary-500 text-white'
+                : 'bg-violet-600 hover:bg-violet-500 text-white'
               }
             `}
             whileTap={{ scale: 0.95 }}
@@ -94,7 +94,7 @@ export default function ShareLink({ link, expiresIn, hasPassword }) {
           </div>
         </div>
         
-        <div className="flex items-center gap-3 text-sm text-gray-400 bg-dark-300/50 rounded-lg p-3">
+        <div className="flex items-center gap-3 text-sm text-gray-400 bg-slate-800/50 rounded-lg p-3">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -102,7 +102,7 @@ export default function ShareLink({ link, expiresIn, hasPassword }) {
         </div>
         
         {hasPassword && (
-          <div className="flex items-center gap-3 text-sm text-primary-400 bg-primary-500/10 border border-primary-500/20 rounded-lg p-3">
+          <div className="flex items-center gap-3 text-sm text-violet-400 bg-violet-500/10 border border-violet-500/20 rounded-lg p-3">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>

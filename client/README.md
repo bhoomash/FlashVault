@@ -1,4 +1,4 @@
-# LockBin Client
+# FlashNote Client
 
 React frontend with end-to-end encryption.
 

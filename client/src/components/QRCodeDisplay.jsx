@@ -28,7 +28,7 @@ export default function QRCodeDisplay({ link }) {
       const pngUrl = canvas.toDataURL('image/png')
       const downloadLink = document.createElement('a')
       downloadLink.href = pngUrl
-      downloadLink.download = 'lockbin-secret-qr.png'
+      downloadLink.download = 'flashnote-secret-qr.png'
       document.body.appendChild(downloadLink)
       downloadLink.click()
       document.body.removeChild(downloadLink)
@@ -41,7 +41,7 @@ export default function QRCodeDisplay({ link }) {
     <div className="mt-4">
       <button
         onClick={() => setShowQR(!showQR)}
-        className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+        className="flex items-center gap-2 text-sm text-gray-600 hover:text-black transition-colors"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />

@@ -9,17 +9,17 @@ const EXPIRY_OPTIONS = [
 export default function ExpirySelector({ value, onChange }) {
   return (
     <div className="space-y-2">
-      <label className="block text-sm font-medium text-gray-300">
+      <label className="block text-sm font-medium text-gray-700">
         Auto-delete after
       </label>
       <div className="relative">
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl 
-                     text-white appearance-none cursor-pointer
+          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl 
+                     text-black appearance-none cursor-pointer
                      focus:ring-2 focus:ring-primary-500 focus:border-transparent 
-                     transition-all hover:border-dark-500"
+                     transition-all hover:border-gray-400"
         >
           {EXPIRY_OPTIONS.map((option) => (
             <option key={option.value} value={option.value}>

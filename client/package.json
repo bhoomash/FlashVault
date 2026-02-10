@@ -1,5 +1,5 @@
 {
-  "name": "flashvault-client",
+  "name": "flashnote-client",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,11 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "framer-motion": "^10.16.16",
     "qrcode.react": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.1"
+    "react-globe.gl": "^2.37.0",
+    "react-router-dom": "^6.21.1",
+    "three": "^0.182.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",

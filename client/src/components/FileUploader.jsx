@@ -87,7 +87,7 @@ export default function FileUploader({ onFileSelect, disabled = false, maxSizeMB
               transition-all duration-200
               ${dragActive 
                 ? 'border-primary-500 bg-primary-500/10' 
-                : 'border-white/20 hover:border-white/40 bg-dark-300/50'
+                : 'border-gray-300 hover:border-gray-400 bg-gray-50'
               }
               ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
             `}
@@ -101,7 +101,7 @@ export default function FileUploader({ onFileSelect, disabled = false, maxSizeMB
               <motion.div 
                 className={`
                   w-16 h-16 rounded-full flex items-center justify-center
-                  ${dragActive ? 'bg-primary-500/20' : 'bg-dark-200'}
+                  ${dragActive ? 'bg-primary-500/20' : 'bg-gray-100'}
                 `}
                 animate={dragActive ? { scale: 1.1 } : { scale: 1 }}
               >
@@ -118,7 +118,7 @@ export default function FileUploader({ onFileSelect, disabled = false, maxSizeMB
               </motion.div>
               
               <div>
-                <p className="text-white font-medium mb-1">
+                <p className="text-black font-medium mb-1">
                   {dragActive ? 'Drop your file here' : 'Drag & drop your file here'}
                 </p>
                 <p className="text-gray-500 text-sm">
@@ -127,10 +127,10 @@ export default function FileUploader({ onFileSelect, disabled = false, maxSizeMB
               </div>
               
               <div className="flex flex-wrap justify-center gap-2 text-xs text-gray-500">
-                <span className="px-2 py-1 bg-dark-200 rounded">PDF</span>
-                <span className="px-2 py-1 bg-dark-200 rounded">Images</span>
-                <span className="px-2 py-1 bg-dark-200 rounded">ZIP</span>
-                <span className="px-2 py-1 bg-dark-200 rounded">Documents</span>
+                <span className="px-2 py-1 bg-gray-100 rounded">PDF</span>
+                <span className="px-2 py-1 bg-gray-100 rounded">Images</span>
+                <span className="px-2 py-1 bg-gray-100 rounded">ZIP</span>
+                <span className="px-2 py-1 bg-gray-100 rounded">Documents</span>
               </div>
             </div>
           </motion.div>
@@ -148,7 +148,7 @@ export default function FileUploader({ onFileSelect, disabled = false, maxSizeMB
               </div>
               
               <div className="flex-1 min-w-0">
-                <p className="text-white font-medium truncate">
+                <p className="text-black font-medium truncate">
                   {selectedFile.name}
                 </p>
                 <p className="text-gray-400 text-sm">

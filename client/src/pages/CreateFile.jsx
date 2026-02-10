@@ -26,29 +26,29 @@ export default function CreateFile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     if (!selectedFile) {
       setError('Please select a file')
       return
     }
-    
+
     setIsLoading(true)
     setError('')
-    
+
     try {
       // Step 1: Generate encryption key
       setProgress('Generating encryption key...')
       const key = await generateKey()
-      
+
       // Step 2: Encrypt the file
       setProgress('Encrypting file...')
       const { encryptedBlob, iv, originalName, mimeType } = await encryptFile(selectedFile, key)
-      
+
       // Step 3: Export key for URL
       setProgress('Preparing secure link...')
       const exportedKey = await exportKey(key)
       const urlSafeKey = toUrlSafeBase64(exportedKey)
-      
+
       // Step 4: Handle password protection if set
       let passwordData = {}
       if (password.trim()) {
@@ -60,25 +60,25 @@ export default function CreateFile() {
           passwordIv: pwIv
         }
       }
-      
+
       // Step 5: Upload encrypted file
       setProgress('Uploading encrypted file...')
       const response = await storeEncryptedFile(encryptedBlob, iv, originalName, mimeType, {
         expiresIn,
         ...passwordData
       })
-      
+
       // Step 6: Create shareable link
       const baseUrl = window.location.origin
       const shareLink = `${baseUrl}/secret/${response.id}#key=${urlSafeKey}&type=file`
-      
+
       setResult({
         link: shareLink,
         expiresIn: response.expiresIn,
         hasPassword: !!password.trim()
       })
       setProgress('')
-      
+
     } catch (err) {
       console.error('Encryption error:', err)
       setError(err.message || 'Failed to encrypt and upload file')
@@ -106,22 +106,16 @@ export default function CreateFile() {
       >
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-primary-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-            </svg>
-          </div>
           <h1 className="text-3xl font-bold mb-2">Share Encrypted File</h1>
-          <p className="text-gray-400">Upload any file up to 20 MB — encrypted in your browser</p>
         </div>
 
         {/* Main Card */}
         <div className="card">
           {result ? (
             <>
-              <ShareLink link={result.link} expiresIn={result.expiresIn} />
-              
-              <div className="mt-6 pt-6 border-t border-white/5">
+              <ShareLink link={result.link} expiresIn={result.expiresIn} hasPassword={!!password.trim()} />
+
+              <div className="mt-6 pt-6 border-t border-gray-200">
                 <button
                   onClick={handleReset}
                   className="btn-secondary w-full flex items-center justify-center gap-2"
@@ -136,9 +130,7 @@ export default function CreateFile() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Select File
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Select File</label>
                 <FileUploader
                   onFileSelect={handleFileSelect}
                   disabled={isLoading}
@@ -147,19 +139,16 @@ export default function CreateFile() {
               </div>
 
               {/* Advanced Options */}
-              <div className="pt-2 space-y-4 border-t border-white/5">
+              <div className="pt-2 space-y-4 border-t border-gray-200">
                 <p className="text-xs text-gray-500 uppercase tracking-wider font-medium">Security Options</p>
-                
+
                 <PasswordInput 
                   value={password}
                   onChange={setPassword}
                   placeholder="Enter a password (optional)"
                 />
-                
-                <ExpirySelector
-                  value={expiresIn}
-                  onChange={setExpiresIn}
-                />
+
+                <ExpirySelector value={expiresIn} onChange={setExpiresIn} />
               </div>
 
               {error && (
@@ -206,26 +195,6 @@ export default function CreateFile() {
           )}
         </div>
 
-        {/* Info Box */}
-        <motion.div
-          className="mt-6 flex items-start gap-3 text-sm text-gray-500 bg-dark-300/30 rounded-xl p-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 flex-shrink-0 mt-0.5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
-          <div>
-            <p className="font-medium text-gray-400 mb-1">Supported file types:</p>
-            <ul className="space-y-1 text-gray-500">
-              <li>• PDF, Word, Excel, PowerPoint documents</li>
-              <li>• Images (JPEG, PNG, GIF, WebP)</li>
-              <li>• Archives (ZIP, RAR, 7z)</li>
-              <li>• Any other file type up to 20 MB</li>
-            </ul>
-          </div>
-        </motion.div>
       </motion.div>
     </div>
   )

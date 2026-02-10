@@ -9,10 +9,7 @@
 }
 
 body {
-  @apply bg-dark-400 text-white min-h-screen antialiased;
-  background-image: 
-    radial-gradient(at 20% 30%, rgba(14, 165, 233, 0.1) 0px, transparent 50%),
-    radial-gradient(at 80% 70%, rgba(14, 165, 233, 0.05) 0px, transparent 50%);
+  @apply bg-slate-900 text-white min-h-screen antialiased;
 }
 
 ::-webkit-scrollbar {
@@ -20,62 +17,62 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-dark-300;
+  @apply bg-slate-800;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-600 rounded-full;
+  @apply bg-violet-500 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary-500;
+  @apply bg-violet-400;
 }
 
 /* Custom focus styles */
 input:focus, textarea:focus, button:focus {
-  @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-dark-400;
+  @apply outline-none ring-2 ring-violet-500 ring-offset-2 ring-offset-slate-900;
 }
 
 /* Glass morphism effect */
 .glass {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
 }
 
 /* Gradient text */
 .gradient-text {
-  @apply bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent;
 }
 
 /* Button styles */
 .btn-primary {
-  @apply bg-primary-600 hover:bg-primary-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-primary-500/25;
+  @apply bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-violet-500/25;
 }
 
 .btn-secondary {
-  @apply bg-dark-200 hover:bg-dark-100 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 border border-white/10;
+  @apply bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 border border-white/20 backdrop-blur-sm;
 }
 
 /* Input styles */
 .input-field {
-  @apply w-full bg-dark-300 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 transition-all duration-200;
+  @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 transition-all duration-200;
 }
 
 .input-field:focus {
-  @apply border-primary-500 bg-dark-200;
+  @apply border-violet-500 bg-white/10;
 }
 
 /* Textarea styles */
 .textarea-field {
-  @apply w-full bg-dark-300 border border-white/10 rounded-lg px-4 py-4 text-white placeholder-gray-500 transition-all duration-200 resize-none;
+  @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder-gray-400 transition-all duration-200 resize-none;
 }
 
 .textarea-field:focus {
-  @apply border-primary-500 bg-dark-200;
+  @apply border-violet-500 bg-white/10;
 }
 
 /* Card styles */
 .card {
-  @apply bg-dark-200/80 backdrop-blur-sm border border-white/5 rounded-2xl p-6 shadow-xl;
+  @apply bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm;
 }
 
 /* Animation classes */
