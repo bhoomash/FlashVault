@@ -16,9 +16,9 @@ export default function ExpirySelector({ value, onChange }) {
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl 
+          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl 
                      text-black appearance-none cursor-pointer
-                     focus:ring-2 focus:ring-primary-500 focus:border-transparent 
+                     focus:ring-2 focus:ring-black focus:border-transparent 
                      transition-all hover:border-gray-400"
         >
           {EXPIRY_OPTIONS.map((option) => (

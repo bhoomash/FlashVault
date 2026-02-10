@@ -106,7 +106,7 @@ export default function CreateFile() {
       >
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Share Encrypted File</h1>
+          <h1 className="text-3xl font-bold mb-2 text-black">Share Encrypted File</h1>
         </div>
 
         {/* Main Card */}
@@ -155,7 +155,7 @@ export default function CreateFile() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-2 text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-lg p-3"
+                  className="flex items-center gap-2 text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg p-3"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -168,9 +168,9 @@ export default function CreateFile() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="flex items-center gap-3 text-primary-400 text-sm bg-primary-500/10 border border-primary-500/20 rounded-lg p-3"
+                  className="flex items-center gap-3 text-gray-600 text-sm bg-gray-50 border border-gray-200 rounded-lg p-3"
                 >
-                  <div className="w-4 h-4 border-2 border-primary-400 border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
                   {progress}
                 </motion.div>
               )}

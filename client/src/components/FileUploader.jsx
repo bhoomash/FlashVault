@@ -86,7 +86,7 @@ export default function FileUploader({ onFileSelect, disabled = false, maxSizeMB
               relative border-2 border-dashed rounded-xl p-8 text-center cursor-pointer
               transition-all duration-200
               ${dragActive 
-                ? 'border-primary-500 bg-primary-500/10' 
+                ? 'border-black bg-gray-100' 
                 : 'border-gray-300 hover:border-gray-400 bg-gray-50'
               }
               ${disabled ? 'opacity-50 cursor-not-allowed' : ''}

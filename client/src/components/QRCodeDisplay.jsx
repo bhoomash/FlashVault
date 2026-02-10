@@ -28,7 +28,7 @@ export default function QRCodeDisplay({ link }) {
       const pngUrl = canvas.toDataURL('image/png')
       const downloadLink = document.createElement('a')
       downloadLink.href = pngUrl
-      downloadLink.download = 'flashnote-secret-qr.png'
+      downloadLink.download = 'flashvault-secret-qr.png'
       document.body.appendChild(downloadLink)
       downloadLink.click()
       document.body.removeChild(downloadLink)

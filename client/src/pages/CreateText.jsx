@@ -91,8 +91,7 @@ export default function CreateText() {
       >
         {/* Header */}
         <div className="text-center mb-8">
-          
-          <h1 className="text-3xl font-bold mb-2">Share Encrypted Text</h1>
+          <h1 className="text-3xl font-bold mb-2 text-black">Share Encrypted Text</h1>
         </div>
 
         {/* Main Card */}
@@ -116,7 +115,7 @@ export default function CreateText() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-600 mb-2">
                   Your Secret Message
                 </label>
                 <MessageBox
@@ -128,7 +127,7 @@ export default function CreateText() {
               </div>
 
               {/* Advanced Options */}
-              <div className="pt-2 space-y-4 border-t border-white/5">
+              <div className="pt-2 space-y-4 border-t border-gray-200">
                 <p className="text-xs text-gray-500 uppercase tracking-wider font-medium">Security Options</p>
                 
                 <PasswordInput 
@@ -147,7 +146,7 @@ export default function CreateText() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-2 text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-lg p-3"
+                  className="flex items-center gap-2 text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg p-3"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

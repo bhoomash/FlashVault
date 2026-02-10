@@ -94,15 +94,10 @@ app.use((err, req, res, next) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`
-  ╔═══════════════════════════════════════════════════╗
-  ║                                                   ║
-  ║   🔒 LockBin Server                               ║
-  ║   Privacy-first encrypted sharing                 ║
-  ║                                                   ║
-  ║   Server running on port ${PORT}                    ║
+  
+  ║   Server running on port ${PORT}                 ║
   ║   No database - all data in memory/temp files    ║
-  ║                                                   ║
-  ╚═══════════════════════════════════════════════════╝
+  
   `);
   
   // Start cleanup scheduler

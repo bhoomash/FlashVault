@@ -163,26 +163,26 @@ export default function ViewSecret() {
         {/* Confirm State */}
         {status === 'confirm' && (
           <div className="text-center">
-            <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="w-20 h-20 bg-amber-50 border border-amber-200 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
             
-            <h1 className="text-3xl font-bold mb-4">Encrypted Secret</h1>
-            <p className="text-gray-400 mb-8 max-w-md mx-auto">
+            <h1 className="text-3xl font-bold mb-4 text-black">Encrypted Secret</h1>
+            <p className="text-gray-600 mb-8 max-w-md mx-auto">
               Someone shared an encrypted {secretType === 'file' ? 'file' : 'message'} with you. 
               Click below to decrypt and view it.
             </p>
             
             <div className="card max-w-md mx-auto mb-6">
-              <div className="flex items-start gap-3 text-amber-400 text-sm mb-4">
+              <div className="flex items-start gap-3 text-amber-700 text-sm mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
                 <div className="text-left">
                   <p className="font-medium">One-time access</p>
-                  <p className="text-amber-400/70">This secret will be permanently destroyed after you view it.</p>
+                  <p className="text-amber-600">This secret will be permanently destroyed after you view it.</p>
                 </div>
               </div>
               
@@ -197,7 +197,7 @@ export default function ViewSecret() {
               </button>
               
               {hasPassword && (
-                <div className="mt-4 flex items-center gap-2 text-sm text-violet-400 bg-violet-500/10 border border-violet-500/20 rounded-lg p-3">
+                <div className="mt-4 flex items-center gap-2 text-sm text-gray-700 bg-gray-50 border border-gray-200 rounded-lg p-3">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
@@ -206,7 +206,7 @@ export default function ViewSecret() {
               )}
             </div>
             
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-500 text-sm">
               Make sure you're ready to save/copy the content before revealing.
             </p>
           </div>
@@ -215,14 +215,14 @@ export default function ViewSecret() {
         {/* Password State */}
         {status === 'password' && (
           <div className="text-center">
-            <div className="w-20 h-20 bg-violet-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="w-20 h-20 bg-gray-50 border border-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
             
-            <h1 className="text-3xl font-bold mb-4">Enter Password</h1>
-            <p className="text-gray-400 mb-8 max-w-md mx-auto">
+            <h1 className="text-3xl font-bold mb-4 text-black">Enter Password</h1>
+            <p className="text-gray-600 mb-8 max-w-md mx-auto">
               This secret is password protected. Enter the password to decrypt.
             </p>
             
@@ -237,16 +237,16 @@ export default function ViewSecret() {
                       setPasswordError('')
                     }}
                     placeholder="Enter password"
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl 
-                               text-white placeholder-gray-400 pr-12
-                               focus:ring-2 focus:ring-violet-500 focus:border-transparent 
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl 
+                               text-black placeholder-gray-400 pr-12
+                               focus:ring-2 focus:ring-black focus:border-transparent 
                                transition-all"
                     onKeyDown={(e) => e.key === 'Enter' && handleReveal()}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-white transition-colors"
+                    className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-black transition-colors"
                   >
                     {showPassword ? (
                       <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -265,7 +265,7 @@ export default function ViewSecret() {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 text-red-400 text-sm"
+                    className="flex items-center gap-2 text-red-600 text-sm"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -300,21 +300,21 @@ export default function ViewSecret() {
         {status === 'success' && secretType === 'text' && (
           <div>
             <div className="text-center mb-8">
-              <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="w-16 h-16 bg-green-50 border border-green-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h1 className="text-2xl font-bold mb-2">Secret Revealed</h1>
-              <p className="text-gray-400">This secret has been destroyed on the server</p>
+              <h1 className="text-2xl font-bold mb-2 text-black">Secret Revealed</h1>
+              <p className="text-gray-600">This secret has been destroyed on the server</p>
             </div>
             
             <div className="card">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm text-gray-400">Decrypted Message</span>
+                <span className="text-sm text-gray-600">Decrypted Message</span>
                 <button
                   onClick={handleCopyText}
-                  className={`text-sm flex items-center gap-1 transition-colors ${copied ? 'text-green-400' : 'text-primary-400 hover:text-primary-300'}`}
+                  className={`text-sm flex items-center gap-1 transition-colors ${copied ? 'text-green-600' : 'text-black hover:text-gray-600'}`}
                 >
                   {copied ? (
                     <>
@@ -354,23 +354,23 @@ export default function ViewSecret() {
         {status === 'success' && secretType === 'file' && fileInfo && (
           <div>
             <div className="text-center mb-8">
-              <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="w-16 h-16 bg-green-50 border border-green-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h1 className="text-2xl font-bold mb-2">File Ready</h1>
-              <p className="text-gray-400">This file has been destroyed on the server</p>
+              <h1 className="text-2xl font-bold mb-2 text-black">File Ready</h1>
+              <p className="text-gray-600">This file has been destroyed on the server</p>
             </div>
             
             <div className="card">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-primary-500/20 rounded-xl flex items-center justify-center text-3xl">
+                <div className="w-16 h-16 bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-center text-3xl">
                   {getFileIcon(fileInfo.mimeType)}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium truncate">{fileInfo.name}</p>
-                  <p className="text-sm text-gray-400">
+                  <p className="font-medium text-black truncate">{fileInfo.name}</p>
+                  <p className="text-sm text-gray-600">
                     {formatFileSize(fileInfo.size)} • {fileInfo.mimeType}
                   </p>
                 </div>
@@ -401,28 +401,28 @@ export default function ViewSecret() {
         {/* Error State */}
         {status === 'error' && (
           <div className="text-center">
-            <div className="w-20 h-20 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="w-20 h-20 bg-red-50 border border-red-200 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
             </div>
             
-            <h1 className="text-3xl font-bold mb-4">Secret Not Available</h1>
-            <p className="text-gray-400 mb-8 max-w-md mx-auto">{error}</p>
+            <h1 className="text-3xl font-bold mb-4 text-black">Secret Not Available</h1>
+            <p className="text-gray-600 mb-8 max-w-md mx-auto">{error}</p>
             
             <div className="card max-w-md mx-auto text-left">
-              <h3 className="font-medium mb-3">This could mean:</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h3 className="font-medium mb-3 text-black">This could mean:</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">•</span>
+                  <span className="text-red-600">•</span>
                   The secret was already viewed and destroyed
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">•</span>
+                  <span className="text-red-600">•</span>
                   The secret expired (secrets expire after 10 minutes)
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-red-400">•</span>
+                  <span className="text-red-600">•</span>
                   The link is invalid or corrupted
                 </li>
               </ul>
