@@ -137,11 +137,7 @@ router.get('/:id', (req, res) => {
   }
 });
 
-/**
- * GET /api/text/:id/exists
- * Check if a secret exists without consuming it
- * Also returns password verification data for pre-verification
- */
+
 router.get('/:id/exists', (req, res) => {
   const { id } = req.params;
   const metadata = store.getSecret(id);
@@ -155,7 +151,6 @@ router.get('/:id/exists', (req, res) => {
     type: metadata.type,
     expiresAt: metadata.expiresAt,
     hasPassword: metadata.hasPassword || false,
-    // Include password verification data so client can verify before consuming
     passwordHash: metadata.passwordHash || null,
     passwordSalt: metadata.passwordSalt || null,
     passwordIv: metadata.passwordIv || null

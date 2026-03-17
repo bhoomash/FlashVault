@@ -43,11 +43,11 @@ export default function ShareLink({ link, expiresIn, hasPassword }) {
       </div>
       
       {/* Link Box */}
-      <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
-        <div className="flex items-center gap-3">
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 sm:p-4">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <div className="flex-1 min-w-0">
             <p className="text-xs text-gray-600 mb-1">Shareable Link</p>
-            <p className="text-black font-mono text-sm truncate">
+            <p className="text-black font-mono text-xs sm:text-sm break-all sm:truncate">
               {link}
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function ShareLink({ link, expiresIn, hasPassword }) {
           <motion.button
             onClick={copyToClipboard}
             className={`
-              px-4 py-2 rounded-lg font-medium text-sm flex items-center gap-2 transition-all
+              w-full sm:w-auto px-4 py-2 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-all
               ${copied 
                 ? 'bg-green-500 text-white' 
                 : 'bg-black hover:bg-gray-800 text-white'

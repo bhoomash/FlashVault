@@ -83,7 +83,7 @@ export default function FileUploader({ onFileSelect, disabled = false, maxSizeMB
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             className={`
-              relative border-2 border-dashed rounded-xl p-8 text-center cursor-pointer
+              relative border-2 border-dashed rounded-xl p-6 sm:p-8 text-center cursor-pointer
               transition-all duration-200
               ${dragActive 
                 ? 'border-black bg-gray-100' 
@@ -97,17 +97,17 @@ export default function FileUploader({ onFileSelect, disabled = false, maxSizeMB
             onDrop={handleDrop}
             onClick={openFileDialog}
           >
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-3 sm:gap-4">
               <motion.div 
                 className={`
-                  w-16 h-16 rounded-full flex items-center justify-center
+                  w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center
                   ${dragActive ? 'bg-primary-500/20' : 'bg-gray-100'}
                 `}
                 animate={dragActive ? { scale: 1.1 } : { scale: 1 }}
               >
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
-                  className={`w-8 h-8 ${dragActive ? 'text-primary-400' : 'text-gray-400'}`}
+                  className={`w-6 h-6 sm:w-8 sm:h-8 ${dragActive ? 'text-primary-400' : 'text-gray-400'}`}
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor" 
@@ -118,11 +118,11 @@ export default function FileUploader({ onFileSelect, disabled = false, maxSizeMB
               </motion.div>
               
               <div>
-                <p className="text-black font-medium mb-1">
-                  {dragActive ? 'Drop your file here' : 'Drag & drop your file here'}
+                <p className="text-black font-medium mb-1 text-sm sm:text-base">
+                  {dragActive ? 'Drop your file here' : 'Tap to select a file'}
                 </p>
-                <p className="text-gray-500 text-sm">
-                  or click to browse • Max {maxSizeMB} MB
+                <p className="text-gray-500 text-xs sm:text-sm">
+                  or drag & drop • Max {maxSizeMB} MB
                 </p>
               </div>
               
@@ -130,7 +130,7 @@ export default function FileUploader({ onFileSelect, disabled = false, maxSizeMB
                 <span className="px-2 py-1 bg-gray-100 rounded">PDF</span>
                 <span className="px-2 py-1 bg-gray-100 rounded">Images</span>
                 <span className="px-2 py-1 bg-gray-100 rounded">ZIP</span>
-                <span className="px-2 py-1 bg-gray-100 rounded">Documents</span>
+                <span className="px-2 py-1 bg-gray-100 rounded">Docs</span>
               </div>
             </div>
           </motion.div>
