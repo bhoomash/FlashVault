@@ -3,6 +3,33 @@ import { useState } from 'react'
 export default function PasswordInput({ value, onChange, placeholder = 'Optional password protection' }) {
   const [showPassword, setShowPassword] = useState(false)
   
+  // Calculate password strength
+  const getStrength = (pass) => {
+    let score = 0
+    if (!pass) return 0
+    if (pass.length > 8) score += 1
+    if (/[A-Z]/.test(pass)) score += 1
+    if (/[0-9]/.test(pass)) score += 1
+    if (/[^A-Za-z0-9]/.test(pass)) score += 1
+    return score
+  }
+
+  const strength = getStrength(value)
+  
+  const getStrengthColor = (s) => {
+    if (s === 0) return 'bg-gray-200'
+    if (s <= 2) return 'bg-red-500'
+    if (s === 3) return 'bg-yellow-500'
+    return 'bg-green-500'
+  }
+
+  const getStrengthLabel = (s) => {
+    if (s === 0) return ''
+    if (s <= 2) return 'Weak'
+    if (s === 3) return 'Medium'
+    return 'Strong'
+  }
+
   return (
     <div className="space-y-2">
       <label className="block text-sm font-medium text-gray-700">
@@ -41,6 +68,22 @@ export default function PasswordInput({ value, onChange, placeholder = 'Optional
           )}
         </button>
       </div>
+
+      {/* Strength Meter */}
+      {value && (
+        <div className="flex items-center gap-2">
+          <div className="h-1 flex-1 bg-gray-200 rounded-full overflow-hidden">
+            <div 
+              className={`h-full transition-all duration-300 ${getStrengthColor(strength)}`}
+              style={{ width: `${(strength / 4) * 100}%` }}
+            />
+          </div>
+          <span className="text-xs font-medium text-gray-500 w-12 text-right">
+            {getStrengthLabel(strength)}
+          </span>
+        </div>
+      )}
+
       <p className="text-xs text-gray-500 flex items-center gap-1">
         <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
